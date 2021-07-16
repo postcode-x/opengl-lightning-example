@@ -118,7 +118,7 @@ def initialize():
         glfw.terminate()
         raise Exception("glfw window can not be created!")
 
-    glfw.window_hint(glfw.SAMPLES, 4)
+    # glfw.window_hint(glfw.SAMPLES, 4)
     glfw.make_context_current(window)
 
     # DATA SETUP
@@ -145,8 +145,8 @@ def initialize():
     glEnableVertexAttribArray(0)  # positions
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, vertex_data.itemsize * 8, ctypes.c_void_p(0))
 
-    glEnableVertexAttribArray(1)  # textures - NONE
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, vertex_data.itemsize * 8, ctypes.c_void_p(12))
+    # glEnableVertexAttribArray(1)  # textures - NONE
+    # glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, vertex_data.itemsize * 8, ctypes.c_void_p(12))
 
     glEnableVertexAttribArray(2)  # normals
     glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, vertex_data.itemsize * 8, ctypes.c_void_p(20))
@@ -166,8 +166,8 @@ def initialize():
     glEnableVertexAttribArray(0)  # positions
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, light_data.itemsize * 8, ctypes.c_void_p(0))
 
-    glEnableVertexAttribArray(1)  # textures - NONE
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, light_data.itemsize * 8, ctypes.c_void_p(12))
+    # glEnableVertexAttribArray(1)  # textures - NONE
+    # glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, light_data.itemsize * 8, ctypes.c_void_p(12))
 
     glEnableVertexAttribArray(2)  # normals
     glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, light_data.itemsize * 8, ctypes.c_void_p(20))
@@ -202,6 +202,8 @@ def initialize():
     view_position_loc = glGetUniformLocation(shader, "viewPos")
 
     glUseProgram(shader)
+
+    # UNIFORMS
 
     glUniform3f(material_ambient_loc, 0.1, 0.4, 0.3)
     glUniform3f(material_diffuse_loc, 0.5, 0.6, 0.7)
